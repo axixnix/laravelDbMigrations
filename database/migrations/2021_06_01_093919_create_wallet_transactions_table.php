@@ -15,7 +15,7 @@ class CreateWalletTransactionsTable extends Migration
     {
         Schema::create('wallet_transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ref');
+            $table->string('ref')->unique();
             $table->string('from');
             $table->string('to');
             $table->double('amount');
