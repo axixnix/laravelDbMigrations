@@ -16,11 +16,11 @@ class CreateVerificationsTable extends Migration
         Schema::create('verifications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->string('token');
+            $table->string('token')->unique();
             $table->enum('status',['pending','completed','cancelled']);
             $table->enum('type',['email','password']);
             $table->timestamps();
-            
+
         });
     }
 
