@@ -15,11 +15,11 @@ class CreateRegistrationPinsTable extends Migration
     {
         Schema::create('registration_pins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('payload');
-            $table->enum('status',['pending','used']);
-            $table->enum('type',['management','super']);
-            $table->dateTime('used_at');
-            $table->bigInteger('user_id');
+            $table->string('payload')->unique();
+            $table->enum('status',['pending','used'])->default('pending');
+            $table->enum('type',['management','super'])->default('super');
+            $table->dateTime('used_at')->nullable();
+            $table->bigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }
