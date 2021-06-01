@@ -21,7 +21,7 @@ class CreateWalletTransactionsTable extends Migration
             $table->double('amount');
             $table->string('currency');
             $table->string('description');
-            $table->tinyInteger('reverted');
+            $table->tinyInteger('reverted')->default('0');
             $table->timestamps();
         });
     }
