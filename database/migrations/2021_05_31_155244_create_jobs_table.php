@@ -17,13 +17,13 @@ class CreateJobsTable extends Migration
            // $table->bigIncrements('id');
            // $table->timestamps();
            $table->bigIncrements('id');
-            $table->string('queue');
+            $table->string('queue')->unique();
             $table->longText('payload');
             $table->tinyInteger('attempts');
-            $table->integer('reserved_at');
+            $table->integer('reserved_at')->nullable();
             $table->integer('available_at');
             $table->integer('created_at');
-            
+
         });
     }
 
