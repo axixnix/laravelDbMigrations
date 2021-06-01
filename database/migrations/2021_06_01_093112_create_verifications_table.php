@@ -17,7 +17,7 @@ class CreateVerificationsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('token')->unique();
-            $table->enum('status',['pending','completed','cancelled']);
+            $table->enum('status',['pending','completed','cancelled'])->default('pending');
             $table->enum('type',['email','password']);
             $table->timestamps();
 
