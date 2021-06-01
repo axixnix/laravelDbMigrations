@@ -15,8 +15,8 @@ class CreateApiKeysTable extends Migration
     {
         Schema::create('api_keys', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('authorization_key');
-            $table->enum('status',['valid','invalid']);
+            $table->string('authorization_key')->unique();
+            $table->enum('status',['valid','invalid'])->default('valid');
             $table->timestamps();
         });
     }
