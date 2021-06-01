@@ -17,10 +17,10 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('txRef')->unique();
             $table->integer('user_id')->nullable();
-            $table->string('currency');
+            $table->string('currency')->default('NGN');
             $table->integer('card_id');
             $table->bigInteger('amount');
-            $table->tinyInteger('verified');
+            $table->tinyInteger('verified')->default('0');
             $table->timestamps();
         });
     }
