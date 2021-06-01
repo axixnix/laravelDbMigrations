@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender',['male','female'])->nullable();
             $table->timestamp('email_verified_at')->nullable();//look this up later
             $table->string('password');
-            $table->string('profile_picture')->nullable();
+            $table->string('profile_picture')->nullable()->unique();
             $table->tinyInteger('suspended')->default('0');
             $table->rememberToken();//look this up later
             $table->timestamps();
